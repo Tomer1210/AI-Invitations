@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030304;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --surface: #0c0c10;
+  --surface-elevated: #121218;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent-from: #a78bfa;
+  --accent-via: #c4b5fd;
+  --accent-to: #f9a8d4;
+  --gold: #d4af37;
+  --gold-soft: rgba(212, 175, 55, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent-from: var(--accent-from);
+  --color-accent-via: var(--accent-via);
+  --color-accent-to: var(--accent-to);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-heebo), var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] {
+  text-align: right;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hebrew typography */
+[dir="rtl"] {
+  word-spacing: 0.02em;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  letter-spacing: normal;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+[dir="rtl"] p {
+  line-height: 1.75;
+}
+
+[dir="rtl"] .text-hebrew-body {
+  line-height: 1.8;
+}
+
+/* RTL-aware gradients (flow toward reading direction) */
+.gradient-accent-text {
+  background-image: linear-gradient(
+    to left,
+    var(--accent-from),
+    var(--accent-via),
+    var(--accent-to)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-accent-bg {
+  background-image: linear-gradient(
+    to left,
+    var(--accent-from),
+    var(--accent-via),
+    var(--accent-to)
+  );
+}
+
+.gradient-accent-br {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--accent-from),
+    var(--accent-to)
+  );
+}
+
+/* Eyebrow labels — no uppercase for Hebrew */
+.eyebrow-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+::selection {
+  background: rgba(167, 139, 250, 0.35);
+  color: #fff;
+}
+
+@keyframes builder-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes builder-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.builder-fade-in {
+  animation: builder-fade-in 0.5s ease-out forwards;
+}
+
+.builder-scale-in {
+  animation: builder-scale-in 0.55s ease-out forwards;
+}
+
+.builder-field {
+  animation: builder-fade-in 0.45s ease-out forwards;
+  opacity: 0;
+}
