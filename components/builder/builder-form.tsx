@@ -5,6 +5,8 @@ import { FormField } from "@/components/builder/form-field";
 import { ImageUpload } from "@/components/builder/image-upload";
 import { DownloadInvitationButton } from "@/components/builder/download-invitation-button";
 import { SaveInvitationButton } from "@/components/builder/save-invitation-button";
+import { WhatsAppShareButton } from "@/components/builder/whatsapp-share-button";
+import { EditorControls } from "@/components/editor/editor-controls";
 import { useBuilder } from "@/lib/builder/context";
 import type { InvitationFormField } from "@/lib/builder/types";
 import { content } from "@/lib/content/he";
@@ -30,6 +32,7 @@ export function BuilderForm() {
         onSubmit={(e) => e.preventDefault()}
       >
         <ImageUpload />
+        <EditorControls />
 
         {fieldOrder.map((field, index) => {
           const isMultiline = field === "description";
@@ -67,10 +70,11 @@ export function BuilderForm() {
         })}
 
         <div
-          className="builder-field flex flex-col gap-3 pt-2 sm:flex-row sm:pt-4"
+          className="builder-field grid gap-3 pt-2 sm:grid-cols-3 sm:pt-4"
           style={{ animationDelay: `${(fieldOrder.length + 1) * 60}ms` }}
         >
           <SaveInvitationButton />
+          <WhatsAppShareButton fullWidth />
           <DownloadInvitationButton className="flex-1" fullWidth />
         </div>
       </form>

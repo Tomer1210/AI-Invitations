@@ -1,6 +1,10 @@
 "use client";
 
-import type { InvitationFormData, SavedInvitation } from "@/lib/builder/types";
+import type {
+  EditorState,
+  InvitationFormData,
+  SavedInvitation,
+} from "@/lib/builder/types";
 import type { InvitationTemplate } from "@/lib/templates/types";
 
 const STORAGE_KEY = "inviteai.savedInvitations.v1";
@@ -10,6 +14,7 @@ type SaveInvitationInput = {
   template: InvitationTemplate;
   formData: InvitationFormData;
   uploadedImage: string | null;
+  editorState?: EditorState;
 };
 
 function canUseStorage() {
@@ -56,6 +61,7 @@ export function saveInvitation({
   template,
   formData,
   uploadedImage,
+  editorState,
 }: SaveInvitationInput): SavedInvitation {
   const invitations = getSavedInvitations();
   const existing = id
@@ -70,6 +76,7 @@ export function saveInvitation({
     templateCategory: template.category,
     formData,
     uploadedImage,
+    editorState,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
   };

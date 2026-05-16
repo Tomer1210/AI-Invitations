@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ButtonLink } from "@/components/ui/button-link";
-import { InvitationCardVisual } from "@/components/templates/invitation-card-visual";
+import { ReadonlyInvitationCanvas } from "@/components/editor/readonly-invitation-canvas";
 import { content } from "@/lib/content/he";
 import type { SavedInvitation } from "@/lib/builder/types";
 import { getBuilderPath } from "@/lib/templates/routes";
@@ -26,30 +26,18 @@ export function SavedInvitationCard({
   template,
   onDelete,
 }: SavedInvitationCardProps) {
-  const { savedInvitations, builder, gallery } = content;
+  const { savedInvitations, gallery } = content;
   const editHref = `${getBuilderPath(template.id)}?invitationId=${invitation.id}`;
 
   return (
     <article className="premium-card group overflow-hidden rounded-3xl p-2 transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_24px_80px_-44px_rgba(167,139,250,0.4)]">
       <div className="grid gap-4 min-[520px]:grid-cols-[9rem_1fr] sm:gap-5">
         <div className="overflow-hidden rounded-2xl">
-          <InvitationCardVisual
-            preview={template.preview}
-            content={{
-              title: invitation.formData.celebrantNames,
-              subtitle:
-                invitation.formData.eventTitle || builder.preview.defaultSubtitle,
-              imageUrl: invitation.uploadedImage,
-              description: invitation.formData.description || undefined,
-              date: invitation.formData.date || undefined,
-              time: invitation.formData.time || undefined,
-              location: invitation.formData.location || undefined,
-              phone: invitation.formData.phone || undefined,
-              dateLabel: builder.preview.dateLabel,
-              timeLabel: builder.preview.timeLabel,
-              locationLabel: builder.preview.locationLabel,
-              phoneLabel: builder.preview.phoneLabel,
-            }}
+          <ReadonlyInvitationCanvas
+            template={template}
+            formData={invitation.formData}
+            uploadedImage={invitation.uploadedImage}
+            editorState={invitation.editorState}
             className="min-[520px]:rounded-2xl"
           />
         </div>

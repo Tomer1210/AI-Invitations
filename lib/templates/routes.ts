@@ -26,4 +26,8 @@ export const CONTENT_CATEGORY_TO_TEMPLATE: Record<string, TemplateCategory> =
     birthdays: "birthday",
     "bar-mitzvahs": "bar-mitzvah",
     business: "business",
+    engagement: "engagement",
+    henna: "henna",
+    bachelor: "bachelor",
+    "brit-baby": "brit-baby",
   };

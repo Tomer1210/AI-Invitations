@@ -18,6 +18,7 @@ export function SaveInvitationButton({ className = "" }: SaveInvitationButtonPro
     template,
     formData,
     uploadedImage,
+    editorState,
     currentSavedInvitationId,
     saveStatus,
     setCurrentSavedInvitation,
@@ -36,6 +37,7 @@ export function SaveInvitationButton({ className = "" }: SaveInvitationButtonPro
         template,
         formData,
         uploadedImage,
+        editorState,
       });
 
       setCurrentSavedInvitation(savedInvitation);
@@ -51,6 +53,7 @@ export function SaveInvitationButton({ className = "" }: SaveInvitationButtonPro
   }, [
     builder.saveError,
     currentSavedInvitationId,
+    editorState,
     formData,
     router,
     setCurrentSavedInvitation,

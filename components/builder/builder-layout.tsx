@@ -3,6 +3,7 @@
 import { BuilderForm } from "@/components/builder/builder-form";
 import { DownloadInvitationButton } from "@/components/builder/download-invitation-button";
 import { LivePreview } from "@/components/builder/live-preview";
+import { WhatsAppShareButton } from "@/components/builder/whatsapp-share-button";
 import { Container } from "@/components/ui/container";
 import { useBuilder } from "@/lib/builder/context";
 import { content } from "@/lib/content/he";
@@ -30,7 +31,8 @@ export function BuilderLayout() {
               </p>
             </div>
             <LivePreview />
-            <div className="mt-5 lg:hidden">
+            <div className="mt-5 grid gap-3 lg:hidden">
+              <WhatsAppShareButton fullWidth size="lg" />
               <DownloadInvitationButton fullWidth size="lg" />
             </div>
           </div>
