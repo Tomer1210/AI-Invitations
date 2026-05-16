@@ -9,6 +9,7 @@ export const content = {
     navLabel: "ניווט ראשי",
     nav: [
       { href: "#templates", label: "תבניות" },
+      { href: "/saved", label: "ההזמנות שלי" },
       { href: "#features", label: "תכונות" },
       { href: "#categories", label: "אירועים" },
       { href: "#faq", label: "שאלות נפוצות" },
@@ -59,6 +60,9 @@ export const content = {
     livePreview: "תצוגה חיה",
     previewHint: "ההזמנה מתעדכנת בזמן אמת",
     saveDraft: "שמירת טיוטה",
+    saving: "שומר...",
+    saved: "נשמר",
+    saveError: "השמירה נכשלה. בדקו שיש מספיק מקום בדפדפן ונסו שוב.",
     downloadInvitation: "הורדת ההזמנה",
     exporting: "מייצא תמונה...",
     exportError: "הייצוא נכשל. נסו שוב.",
@@ -101,6 +105,22 @@ export const content = {
         read: "לא ניתן לקרוא את הקובץ. נסו שוב.",
       },
     },
+  },
+  savedInvitations: {
+    navLabel: "ההזמנות שלי",
+    pageTitle: "ההזמנות שלי",
+    eyebrow: "טיוטות שמורות",
+    description:
+      "כל ההזמנות נשמרות בדפדפן במכשיר הזה בלבד. אפשר לפתוח, לערוך או למחוק בכל רגע.",
+    emptyTitle: "עדיין אין הזמנות שמורות",
+    emptyDescription:
+      "בחרו תבנית, מלאו את פרטי האירוע ושמרו את ההזמנה כדי למצוא אותה כאן.",
+    createNew: "יצירת הזמנה חדשה",
+    edit: "פתיחה ועריכה",
+    delete: "מחיקה",
+    updatedAt: "עודכן",
+    createdAt: "נוצר",
+    confirmDelete: "למחוק את ההזמנה השמורה?",
   },
   features: {
     eyebrow: "תכונות",

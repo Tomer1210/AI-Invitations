@@ -16,7 +16,7 @@ export function Hero() {
   const featuredTemplate = getAllTemplates()[0];
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-36">
+    <section className="relative overflow-hidden pb-18 pt-10 sm:pb-28 sm:pt-16 lg:pb-36 lg:pt-24">
       <GradientOrb className="-top-24 start-1/2 h-72 w-72 -translate-x-1/2 bg-accent-from/25 sm:h-96 sm:w-96" />
       <GradientOrb className="top-1/3 -end-16 h-56 w-56 bg-accent-to/20 sm:h-80 sm:w-80" />
       <GradientOrb className="bottom-0 -start-12 h-48 w-48 bg-gold/10 sm:h-64 sm:w-64" />
@@ -25,15 +25,19 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(167,139,250,0.18),transparent)]"
       />
+      <div
+        aria-hidden
+        className="soft-grid pointer-events-none absolute inset-x-0 top-0 h-[34rem] opacity-35"
+      />
 
       <Container className="relative">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-2 text-xs font-medium text-muted backdrop-blur-sm sm:text-sm">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.055] px-4 py-2 text-xs font-medium text-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:text-sm">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
             {hero.badge}
           </p>
 
-          <h1 className="text-[2rem] font-semibold leading-[1.3] text-foreground sm:text-5xl sm:leading-[1.25] lg:text-6xl xl:text-7xl">
+          <h1 className="text-[2.15rem] font-semibold leading-[1.22] text-foreground sm:text-5xl sm:leading-[1.18] lg:text-6xl xl:text-7xl">
             {hero.headline}{" "}
             <span className="gradient-accent-text">{hero.headlineAccent}</span>
           </h1>
@@ -65,13 +69,13 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative mx-auto mt-14 max-w-4xl sm:mt-20">
-          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-white/20 via-white/5 to-transparent opacity-60 sm:rounded-3xl" />
+        <div className="relative mx-auto mt-12 max-w-4xl sm:mt-20">
+          <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-white/20 via-white/5 to-transparent opacity-70" />
           <div
-            className="relative overflow-hidden rounded-2xl border border-border bg-surface-elevated/80 p-1 shadow-2xl shadow-black/50 backdrop-blur sm:rounded-3xl"
+            className="premium-card relative overflow-hidden rounded-3xl p-1.5 backdrop-blur"
             aria-hidden
           >
-            <div className="grid gap-3 rounded-xl bg-surface p-4 sm:grid-cols-3 sm:gap-4 sm:p-6">
+            <div className="grid gap-3 rounded-2xl bg-surface/70 p-3 sm:grid-cols-3 sm:gap-4 sm:p-6">
               {hero.previews.map((preview, index) => (
                 <InvitationPreview
                   key={preview.label}

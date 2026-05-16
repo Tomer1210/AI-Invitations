@@ -1,4 +1,4 @@
-import { getTemplateById, getTemplatesByCategory } from "./index";
+import { invitationTemplates } from "./data";
 import type { TemplateCategory } from "./types";
 
 export function getBuilderPath(templateId: string): string {
@@ -8,13 +8,15 @@ export function getBuilderPath(templateId: string): string {
 export function getDefaultTemplateForCategory(
   category: TemplateCategory,
 ) {
-  const templates = getTemplatesByCategory(category);
-  return templates[0] ?? null;
+  return (
+    invitationTemplates.find((template) => template.category === category) ??
+    null
+  );
 }
 
 export function resolveTemplateFromParam(templateId: string) {
   const decoded = decodeURIComponent(templateId);
-  return getTemplateById(decoded);
+  return invitationTemplates.find((template) => template.id === decoded);
 }
 
 /** Maps landing-page category ids to template data categories */

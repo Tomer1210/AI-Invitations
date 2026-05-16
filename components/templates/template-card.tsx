@@ -31,10 +31,10 @@ export function TemplateCard({
       href={builderHref}
       className="group block rounded-2xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-from/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
-      <article className="relative overflow-hidden rounded-2xl border border-border bg-surface-elevated p-2 transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:border-border-strong group-hover:shadow-[0_20px_60px_-20px_rgba(167,139,250,0.35)]">
+      <article className="premium-card relative overflow-hidden rounded-3xl p-2 transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-border-strong group-hover:shadow-[0_28px_90px_-36px_rgba(167,139,250,0.45)]">
         <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-[1.15rem]">
           <TemplatePreview preview={template.preview} />
 
           <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-background/70 opacity-0 backdrop-blur-[2px] transition-all duration-500 group-hover:opacity-100 md:flex">
@@ -65,7 +65,7 @@ export function TemplateCard({
             )}
           </div>
 
-          <h3 className="text-base font-semibold text-foreground sm:text-lg">
+          <h3 className="text-base font-semibold text-foreground transition-colors group-hover:text-accent-via sm:text-lg">
             {template.name}
           </h3>
           <p className="text-hebrew-body mt-1.5 line-clamp-2 text-sm text-muted">

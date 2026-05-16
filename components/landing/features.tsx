@@ -19,11 +19,11 @@ export function Features() {
           {features.items.map((feature) => (
             <li
               key={feature.title}
-              className="group rounded-2xl border border-border bg-surface-elevated/50 p-6 text-start transition-colors hover:border-border-strong hover:bg-surface-elevated sm:p-7"
+              className="premium-card group rounded-3xl p-6 text-start transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_22px_70px_-42px_rgba(167,139,250,0.38)] sm:p-7"
             >
               <span
                 aria-hidden
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background text-lg transition-transform group-hover:scale-105"
+                className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-background/70 text-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105"
               >
                 {feature.icon}
               </span>

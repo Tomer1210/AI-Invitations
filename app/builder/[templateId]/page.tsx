@@ -6,6 +6,7 @@ import { resolveTemplateFromParam } from "@/lib/templates/routes";
 
 type BuilderPageProps = {
   params: Promise<{ templateId: string }>;
+  searchParams: Promise<{ invitationId?: string }>;
 };
 
 export async function generateMetadata({
@@ -23,13 +24,22 @@ export async function generateMetadata({
   };
 }
 
-export default async function BuilderPage({ params }: BuilderPageProps) {
+export default async function BuilderPage({
+  params,
+  searchParams,
+}: BuilderPageProps) {
   const { templateId } = await params;
+  const { invitationId } = await searchParams;
   const template = resolveTemplateFromParam(templateId);
 
   if (!template) {
     notFound();
   }
 
-  return <BuilderShell template={template} />;
+  return (
+    <BuilderShell
+      template={template}
+      initialSavedInvitationId={invitationId ?? null}
+    />
+  );
 }

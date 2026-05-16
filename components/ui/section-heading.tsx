@@ -15,13 +15,13 @@ export function SectionHeading({
     align === "center" ? "text-center mx-auto" : "text-start";
 
   return (
-    <div className={`max-w-2xl mb-12 sm:mb-16 lg:mb-20 ${alignClass}`}>
+    <div className={`mb-10 max-w-2xl sm:mb-14 lg:mb-16 ${alignClass}`}>
       {eyebrow && (
         <p className="eyebrow-label mb-3 text-accent-via sm:text-sm">
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-semibold text-foreground sm:text-4xl lg:text-5xl">
+      <h2 className="text-3xl font-semibold leading-tight text-foreground sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (

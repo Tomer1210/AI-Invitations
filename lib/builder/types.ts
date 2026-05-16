@@ -9,3 +9,14 @@ export type InvitationFormData = {
 };
 
 export type InvitationFormField = keyof InvitationFormData;
+
+export type SavedInvitation = {
+  id: string;
+  templateId: string;
+  templateName: string;
+  templateCategory: string;
+  formData: InvitationFormData;
+  uploadedImage: string | null;
+  createdAt: string;
+  updatedAt: string;
+};

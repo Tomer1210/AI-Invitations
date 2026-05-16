@@ -31,7 +31,11 @@ export function TemplateGallery() {
   ];
 
   return (
-    <Section id="templates" className="border-t border-border bg-surface/20">
+    <Section id="templates" className="relative overflow-hidden border-t border-border bg-surface/20">
+      <div
+        aria-hidden
+        className="soft-grid pointer-events-none absolute inset-0 opacity-35"
+      />
       <Container>
         <SectionHeading
           eyebrow={gallery.eyebrow}
@@ -40,7 +44,7 @@ export function TemplateGallery() {
         />
 
         <div
-          className="mb-8 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mb-10 sm:flex-wrap sm:justify-center sm:gap-2.5 [&::-webkit-scrollbar]:hidden"
+          className="relative mb-8 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mb-10 sm:flex-wrap sm:justify-center sm:gap-2.5 [&::-webkit-scrollbar]:hidden"
           role="tablist"
           aria-label={gallery.filterLabel}
         >
@@ -54,10 +58,10 @@ export function TemplateGallery() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-all duration-300 sm:text-sm ${
+                className={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 sm:text-sm ${
                   isActive
                     ? "gradient-accent-bg border-transparent text-background shadow-[0_0_24px_-6px_rgba(167,139,250,0.5)]"
-                    : "border-border bg-surface-elevated/60 text-muted hover:border-border-strong hover:text-foreground"
+                    : "border-border bg-white/[0.045] text-muted backdrop-blur-sm hover:border-border-strong hover:bg-white/[0.07] hover:text-foreground"
                 }`}
               >
                 {filter.label}

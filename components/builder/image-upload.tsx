@@ -22,6 +22,7 @@ export function ImageUpload() {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<ImageUploadError | null>(null);
 
   const handleFile = useCallback(
@@ -29,14 +30,17 @@ export function ImageUpload() {
       if (!file) return;
 
       setError(null);
+      setIsProcessing(true);
       const result = await processImageFile(file);
 
       if ("error" in result) {
         setError(result.error);
+        setIsProcessing(false);
         return;
       }
 
       setUploadedImage(result.dataUrl);
+      setIsProcessing(false);
     },
     [setUploadedImage],
   );
@@ -81,10 +85,10 @@ export function ImageUpload() {
   };
 
   return (
-    <div className="builder-field space-y-2" style={{ animationDelay: "0ms" }}>
+    <div className="builder-field space-y-2.5" style={{ animationDelay: "0ms" }}>
       <label
         htmlFor={inputId}
-        className="block text-sm font-medium text-foreground"
+        className="block text-sm font-medium text-foreground/90"
       >
         {copy.label}
       </label>
@@ -99,7 +103,7 @@ export function ImageUpload() {
       />
 
       {uploadedImage ? (
-        <div className="overflow-hidden rounded-2xl border border-border bg-surface/60">
+        <div className="overflow-hidden rounded-2xl border border-border bg-white/[0.045] shadow-[inset_0_1px_0_rgba(255,255,255,0.055)] backdrop-blur-sm">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -137,18 +141,19 @@ export function ImageUpload() {
           onDragOver={onDragOver}
           onDragLeave={onDragLeave}
           onDrop={onDrop}
-          className={`group relative flex w-full min-h-[140px] flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed px-4 py-8 text-center transition-all duration-300 sm:min-h-[160px] ${
+          className={`group relative flex min-h-[150px] w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-2 border-dashed px-4 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.055)] transition-all duration-300 sm:min-h-[170px] ${
             isDragging
-              ? "border-accent-from bg-accent-from/10 scale-[1.01]"
-              : "border-border bg-surface/40 hover:border-accent-from/40 hover:bg-surface-elevated/60"
+              ? "scale-[1.01] border-accent-from bg-accent-from/10"
+              : "border-border bg-white/[0.04] hover:border-accent-from/40 hover:bg-white/[0.07]"
           }`}
         >
+          <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(167,139,250,0.13),transparent_55%)] opacity-0 transition-opacity group-hover:opacity-100" />
           <span
             aria-hidden
-            className={`flex h-12 w-12 items-center justify-center rounded-xl border transition-colors ${
+            className={`relative flex h-12 w-12 items-center justify-center rounded-xl border transition-all duration-300 ${
               isDragging
                 ? "border-accent-from/50 bg-accent-from/20 text-accent-via"
-                : "border-border bg-surface-elevated text-muted group-hover:border-accent-from/30 group-hover:text-accent-via"
+                : "border-border bg-surface-elevated text-muted group-hover:-translate-y-0.5 group-hover:border-accent-from/30 group-hover:text-accent-via"
             }`}
           >
             <svg
@@ -165,13 +170,17 @@ export function ImageUpload() {
               />
             </svg>
           </span>
-          <span className="block">
+          <span className="relative block">
             <span className="text-sm font-medium text-foreground">
-              {isDragging ? copy.dropActive : copy.hint}
+              {isProcessing
+                ? "מעבד תמונה..."
+                : isDragging
+                  ? copy.dropActive
+                  : copy.hint}
             </span>
             <span className="mt-1 block text-xs text-muted">{copy.formats}</span>
           </span>
-          <span className="gradient-accent-bg rounded-full px-4 py-2 text-xs font-semibold text-background sm:text-sm">
+          <span className="gradient-accent-bg relative rounded-full px-4 py-2 text-xs font-semibold text-background shadow-[0_12px_35px_-18px_rgba(167,139,250,0.9)] sm:text-sm">
             {copy.browse}
           </span>
         </button>

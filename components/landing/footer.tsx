@@ -10,13 +10,13 @@ const footerGroups = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface/50 pt-14 pb-8 sm:pt-16">
+    <footer className="border-t border-border bg-surface/45 pb-8 pt-14 backdrop-blur-sm sm:pt-16">
       <Container>
         <div className="grid gap-10 text-start sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-opacity hover:opacity-90"
             >
               <span
                 aria-hidden

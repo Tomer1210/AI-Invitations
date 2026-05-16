@@ -5,11 +5,11 @@ import { content } from "@/lib/content/he";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/68 shadow-[0_14px_55px_-42px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
       <Container className="flex h-14 items-center justify-between gap-3 sm:h-16">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground sm:text-base"
+          className="flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground transition-opacity hover:opacity-90 sm:text-base"
         >
           <span
             aria-hidden
@@ -28,7 +28,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="rounded-full px-2 py-1 text-sm text-muted transition-colors hover:bg-white/[0.04] hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -48,7 +48,7 @@ export function Header() {
           <Link
             key={link.href}
             href={link.href}
-            className="shrink-0 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium text-muted transition-colors hover:border-border-strong hover:text-foreground"
+            className="shrink-0 rounded-full border border-border bg-white/[0.045] px-4 py-1.5 text-xs font-medium text-muted backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-border-strong hover:bg-white/[0.07] hover:text-foreground"
           >
             {link.label}
           </Link>

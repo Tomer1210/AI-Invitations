@@ -22,13 +22,13 @@ export function FormField(props: FormFieldProps) {
   const { label, id, hint, multiline, className = "", ...rest } = props;
 
   const inputClassName =
-    "w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted/50 transition-all duration-200 focus:border-accent-from/50 focus:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-accent-from/20 sm:text-base";
+    "premium-focus w-full rounded-2xl border border-border bg-white/[0.045] px-4 py-3.5 text-sm text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] placeholder:text-muted/45 backdrop-blur-sm hover:border-border-strong hover:bg-white/[0.065] sm:text-base";
 
   return (
-    <div className="group space-y-2">
+    <div className="group space-y-2.5">
       <label
         htmlFor={id}
-        className="block text-sm font-medium text-foreground transition-colors group-focus-within:text-accent-via"
+        className="block text-sm font-medium text-foreground/90 transition-colors group-focus-within:text-accent-via"
       >
         {label}
       </label>
@@ -46,7 +46,7 @@ export function FormField(props: FormFieldProps) {
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
-      {hint && <p className="text-xs text-muted">{hint}</p>}
+      {hint && <p className="text-xs leading-relaxed text-muted">{hint}</p>}
     </div>
   );
 }

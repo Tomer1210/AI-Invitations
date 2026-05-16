@@ -26,18 +26,18 @@ export function LivePreview() {
 
   return (
     <div className="builder-scale-in">
-      <div className="relative mx-auto w-full max-w-md">
+      <div className="relative mx-auto w-full max-w-[23rem] sm:max-w-md">
         <div
           aria-hidden
-          className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-b from-accent-from/20 via-transparent to-accent-to/10 opacity-60 blur-xl"
+          className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-b from-accent-from/25 via-accent-to/10 to-transparent opacity-75 blur-2xl"
         />
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-surface-elevated p-2 shadow-2xl shadow-black/40">
+        <div className="premium-card relative overflow-hidden rounded-[1.65rem] p-2.5 shadow-[0_35px_100px_-48px_rgba(0,0,0,0.95)]">
           <div
             ref={exportRef}
             dir="rtl"
             lang="he"
             data-invitation-export
-            className="w-full overflow-hidden rounded-xl"
+            className="w-full overflow-hidden rounded-[1.15rem]"
           >
             <InvitationCardVisual
               key={`${template.id}-${uploadedImage ? "img" : "no-img"}`}

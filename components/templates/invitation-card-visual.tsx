@@ -34,16 +34,17 @@ export function InvitationCardVisual({
   return (
     <div
       aria-hidden={ariaHidden}
-      className={`relative flex aspect-[3/4] w-full flex-col overflow-hidden rounded-xl bg-gradient-to-br p-5 sm:p-6 ${preview.gradient} ${className}`}
+      className={`relative flex aspect-[3/4] w-full flex-col overflow-hidden rounded-[1.15rem] bg-gradient-to-br p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-80px_130px_rgba(0,0,0,0.22)] sm:p-6 ${preview.gradient} ${className}`}
     >
       <div
         className={`pointer-events-none absolute inset-0 bg-gradient-to-b ${preview.overlay}`}
       />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.16),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.06),transparent_18%,rgba(0,0,0,0.18))]" />
 
       <Ornament type={preview.ornament} />
 
       {content.imageUrl && (
-        <div className="relative z-10 mb-3 w-full shrink-0 overflow-hidden rounded-lg border border-white/20 shadow-lg shadow-black/30">
+        <div className="relative z-10 mb-3 w-full shrink-0 overflow-hidden rounded-xl border border-white/20 shadow-[0_18px_45px_-28px_rgba(0,0,0,0.95)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={content.imageUrl}
@@ -54,25 +55,25 @@ export function InvitationCardVisual({
       )}
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center text-center">
-        <div className="mb-3 h-px w-12 bg-white/25" />
+        <div className="mb-3 h-px w-14 bg-gradient-to-l from-transparent via-white/35 to-transparent" />
         <p
-          className={`text-balance text-lg font-semibold leading-tight transition-all duration-300 sm:text-xl ${preview.accent}`}
+          className={`text-balance text-xl font-semibold leading-tight drop-shadow-sm transition-all duration-300 sm:text-2xl ${preview.accent}`}
         >
           {content.title || "—"}
         </p>
-        <p className="text-hebrew-body mt-2 max-w-[90%] text-balance text-[11px] leading-relaxed text-white/60 transition-all duration-300 sm:text-xs">
+        <p className="text-hebrew-body mt-2 max-w-[90%] text-balance text-xs leading-relaxed text-white/66 transition-all duration-300 sm:text-sm">
           {content.subtitle || "—"}
         </p>
         {content.description && (
-          <p className="mt-3 max-w-[90%] text-balance text-[10px] leading-relaxed text-white/45 sm:text-[11px]">
+          <p className="mt-3 max-w-[90%] text-balance text-[10px] leading-relaxed text-white/48 sm:text-xs">
             {content.description}
           </p>
         )}
-        <div className="mb-3 mt-4 h-px w-12 bg-white/25" />
+        <div className="mb-3 mt-4 h-px w-14 bg-gradient-to-l from-transparent via-white/30 to-transparent" />
       </div>
 
       {hasDetails && (
-        <div className="relative z-10 space-y-1.5 text-center text-[10px] leading-relaxed text-white/50 sm:text-[11px]">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-black/12 px-3 py-2.5 text-center text-[10px] leading-relaxed text-white/58 backdrop-blur-sm sm:text-xs">
           {content.date && (
             <p>
               <span className="text-white/35">{content.dateLabel}: </span>

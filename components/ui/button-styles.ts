@@ -1,15 +1,16 @@
 export const buttonVariantStyles = {
   primary:
-    "gradient-accent-bg text-background font-semibold shadow-[0_0_40px_-8px_rgba(167,139,250,0.55)] hover:shadow-[0_0_48px_-6px_rgba(167,139,250,0.7)] hover:brightness-110",
+    "gradient-accent-bg text-background font-semibold shadow-[0_16px_45px_-18px_rgba(167,139,250,0.85)] hover:shadow-[0_22px_70px_-22px_rgba(249,168,212,0.85)] hover:brightness-110 focus-visible:ring-accent-from/45",
   secondary:
-    "border border-border-strong bg-surface-elevated/80 text-foreground backdrop-blur-sm hover:border-white/25 hover:bg-surface-elevated",
-  ghost: "text-muted hover:text-foreground",
+    "border border-border-strong bg-white/[0.055] text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl hover:border-white/25 hover:bg-white/[0.09] focus-visible:ring-white/20",
+  ghost:
+    "text-muted hover:text-foreground hover:bg-white/[0.04] focus-visible:ring-white/15",
 } as const;
 
 export const buttonSizeStyles = {
   sm: "px-4 py-2.5 text-sm rounded-full min-h-10",
   md: "px-6 py-3 text-sm sm:text-base rounded-full min-h-11",
-  lg: "px-8 py-3.5 sm:py-4 text-base rounded-full min-h-12",
+  lg: "px-7 py-3.5 sm:px-8 sm:py-4 text-base rounded-full min-h-12",
 } as const;
 
 export type ButtonVariant = keyof typeof buttonVariantStyles;
@@ -20,5 +21,5 @@ export function getButtonClassName(
   size: ButtonSize = "md",
   className = "",
 ) {
-  return `inline-flex items-center justify-center gap-2 transition-all duration-300 active:scale-[0.98] ${buttonVariantStyles[variant]} ${buttonSizeStyles[size]} ${className}`;
+  return `inline-flex items-center justify-center gap-2 select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${buttonVariantStyles[variant]} ${buttonSizeStyles[size]} ${className}`;
 }

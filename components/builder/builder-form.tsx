@@ -4,7 +4,7 @@ import type { ChangeEvent, CSSProperties } from "react";
 import { FormField } from "@/components/builder/form-field";
 import { ImageUpload } from "@/components/builder/image-upload";
 import { DownloadInvitationButton } from "@/components/builder/download-invitation-button";
-import { Button } from "@/components/ui/button";
+import { SaveInvitationButton } from "@/components/builder/save-invitation-button";
 import { useBuilder } from "@/lib/builder/context";
 import type { InvitationFormField } from "@/lib/builder/types";
 import { content } from "@/lib/content/he";
@@ -70,9 +70,7 @@ export function BuilderForm() {
           className="builder-field flex flex-col gap-3 pt-2 sm:flex-row sm:pt-4"
           style={{ animationDelay: `${(fieldOrder.length + 1) * 60}ms` }}
         >
-          <Button type="button" variant="secondary" className="flex-1">
-            {builder.saveDraft}
-          </Button>
+          <SaveInvitationButton />
           <DownloadInvitationButton className="flex-1" fullWidth />
         </div>
       </form>

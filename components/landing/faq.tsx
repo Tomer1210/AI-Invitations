@@ -19,7 +19,7 @@ export function FAQ() {
           description={faq.description}
         />
 
-        <ul className="mx-auto max-w-3xl divide-y divide-border rounded-2xl border border-border bg-surface-elevated/50">
+        <ul className="glass-panel mx-auto max-w-3xl divide-y divide-border overflow-hidden rounded-3xl">
           {faq.items.map((item, index) => {
             const isOpen = openIndex === index;
 
@@ -28,7 +28,7 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-start justify-between gap-4 px-5 py-5 text-start transition-colors hover:bg-surface-elevated sm:px-6 sm:py-6"
+                  className="flex w-full items-start justify-between gap-4 px-5 py-5 text-start transition-colors hover:bg-white/[0.045] sm:px-6 sm:py-6"
                   aria-expanded={isOpen}
                 >
                   <span className="pe-2 text-base font-medium text-foreground sm:text-lg">
@@ -36,7 +36,7 @@ export function FAQ() {
                   </span>
                   <span
                     aria-hidden
-                    className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-sm text-muted transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                    className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border bg-background/40 text-sm text-muted transition-all duration-300 ${isOpen ? "rotate-45 border-accent-from/40 text-accent-via" : ""}`}
                   >
                     +
                   </span>

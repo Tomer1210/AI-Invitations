@@ -11,11 +11,11 @@ export function BuilderHeader({ template }: BuilderHeaderProps) {
   const { builder, brand } = content;
 
   return (
-    <header className="border-b border-border bg-background/80 backdrop-blur-xl">
-      <Container className="flex h-14 items-center justify-between gap-4 sm:h-16">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/72 shadow-[0_14px_55px_-42px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
+      <Container className="flex h-14 items-center justify-between gap-3 sm:h-16">
         <Link
           href="/#templates"
-          className="flex shrink-0 items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
+          className="flex shrink-0 items-center gap-2 rounded-full border border-border bg-white/[0.035] px-3 py-1.5 text-xs text-muted transition-all hover:-translate-y-0.5 hover:border-border-strong hover:bg-white/[0.06] hover:text-foreground sm:text-sm"
         >
           <span aria-hidden className="text-base">
             →
@@ -32,7 +32,7 @@ export function BuilderHeader({ template }: BuilderHeaderProps) {
 
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground"
+          className="flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground transition-opacity hover:opacity-90"
         >
           <span
             aria-hidden
